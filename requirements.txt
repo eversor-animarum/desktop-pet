@@ -1,0 +1,13 @@
+okay I am testing this again
+I have got a bunch of cute gifs that i wan tot experiment with
+Checklist
+- Download gifs
+- Import pillow and tkinter
+- create solid folder structure
+- create classes for the pets, animations and other events
+- the animations are simply the gifs,so I choose specifics
+- creating the tkinter window and placing the images
+- debugging and performing tests
+#I guess I'd have to make soem chnages to this later
+first make a conditional where depending on the gif, the animation chosen would either use two labels 
+or one labelstweo labels would be used for gifs
