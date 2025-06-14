@@ -1,10 +1,16 @@
 #importing the os
 import os
+import sys
 #importing tkinter and pillow
 import tkinter as tk
 from PIL import Image, ImageTk, ImageSequence
 #from utils.loader import load_animation_frames
 from config import ANIMATION_FOLDER, BACKGROUND_COLOR, DEFAULT_FRAME_SIZE, USE_FIXED_SIZE
+#this is the function to enable the gifs be accesed easily when it's an exe
+def resource_path(relative_path):
+    #this is the absolute path for the .exe
+    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
 # Creating the View class
 class View:
     #making the constructor
@@ -35,10 +41,12 @@ class View:
 # Defining a method to update animation based on state
     def load_animations(self):
         #the path to the assets folder
-         assets_path = os.path.join(os.path.dirname(__file__), '..', ANIMATION_FOLDER)
+         assets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', ANIMATION_FOLDER))
+         print(f"Looking in assets path: {assets_path}")
          #so this is to load each frame in the folder
          for filename in os.listdir(assets_path):
              if filename.endswith('gif'):
+                 #I had to update this path
                  gif_path = os.path.join(assets_path, filename)
                  img = Image.open(gif_path)
                  # Extract state name from filename (remove extension)
