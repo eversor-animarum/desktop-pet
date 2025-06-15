@@ -3,7 +3,7 @@
 WINDOW_TITLE = "Desktop Pet"
 BACKGROUND_COLOR = "violet"      
 TRANSPARENT_COLOR = "violet"
-WINDOW_GEOMETRY = "400x200+1190+630"
+WINDOW_GEOMETRY = "400x200+1190+660"
 ALWAYS_ON_TOP = True
 RESIZABLE = (False, False)
 #doubling the gif dimension frames
