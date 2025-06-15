@@ -26,7 +26,7 @@ b2=Button(root,text='Stop',command=lambda:print('quitting'),bg='lightpink',fg='b
 b3=Button(root,text='Peach',command=lambda:print('Peachis activated'),bg='lightpink',fg='black',font=('Arial',11))
 b4=Button(root,text='Goma',command=lambda:print('Goma is activated'),bg='lightpink',fg='black',font=('Arial',11))
 b5=Button(root,text='Both',command=lambda:print('Both are active'),bg='lightpink',fg='black',font=('Arial',11))
-#I put the butoons in a tuple
+#I put the buttons in a tuple
 Buttons=[b1,b2,b3,b4,b5]
 #placing them in the window using a for loop
 for i,button in enumerate(Buttons):

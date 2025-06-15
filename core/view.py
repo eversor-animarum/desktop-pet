@@ -54,6 +54,7 @@ class View:
                  # storing it into tkinter photoimage format yahh
                  frames = []
                  for frame in ImageSequence.Iterator(img):
+                     #super importannt to convert the gifs to rgba
                      frame = frame.convert('RGBA')
                      if USE_FIXED_SIZE:
                          target_size = DEFAULT_FRAME_SIZE
@@ -79,15 +80,15 @@ class View:
         self.current_state = state
         #getting the current frame to display
         self.current_frame_index %= len(frames)
-        #frame= frames[self.current_frame_index]
+        frame= frames[self.current_frame_index]
         #updating the label to show the current frame
-        #self.label.image=frame
+        self.label.image=frame
         #increment of the frame index
-        #self.current_frame_index += 1
+        self.current_frame_index += 1
         #commenting out the old code to see if this would display a single frame
-        frame = frames[0]
-        self.label.config(image=frame)
-        self.label.image = frame
+        #frame = frames[0]
+        #self.label.config(image=frame)
+        #self.label.image = frame
 
 # Define a method to move the pet to new screen coordinates
     def set_position(self, x, y):
