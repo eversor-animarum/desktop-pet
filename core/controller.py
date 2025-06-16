@@ -9,18 +9,15 @@ class Controller:
         self.view = view
         # this is a counter to prevent the pet from changing states too quickly
         self.state_change_counter = 30
-        # initializing the behaviour loop
+        # initializing the behaviour loop,this made the loop run before the gui could keep up
         #self.behaviour_loop()
-
     # Defining a method to create the recurring behaviour loop, it'll be called in the main window
     def behaviour_loop(self):
      current_state = self.model.state
      print(f"Looping - Current state: {current_state}, Frame index: {self.model.frame_index}")
-
     # Update animation frame
      self.model.increment_frame()
      self.view.update_animation(current_state)
-
     # Change state after countdown
      if self.state_change_counter <= 0:
         new_state = random.choice(IDLE_ANIMATION_STATES)
