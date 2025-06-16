@@ -70,25 +70,24 @@ class View:
 
 # This method updates the current frame to be displayed using the controller
     def update_animation(self, state):
-        print(f"Updating to state: {state}, Frame index: {self.current_frame_index}")
-        #getting the animations
-        frames = self.animations.get(state)
-        #if the stae doesn't exist
-        if not frames:
-            return
-        #setting the current state
-        self.current_state = state
-        #getting the current frame to display
-        self.current_frame_index %= len(frames)
-        frame= frames[self.current_frame_index]
-        #updating the label to show the current frame
-        self.label.image=frame
-        #increment of the frame index
-        self.current_frame_index += 1
-        #commenting out the old code to see if this would display a single frame
-        #frame = frames[0]
-        #self.label.config(image=frame)
-        #self.label.image = frame
+        if self.current_state != state:
+            print(f"Switching to new state: {state}")
+            frames = self.animations.get(state)
+            if not frames:
+                print(f"No frames found for state: {state}")
+                return
+            self.current_state = state
+            self.current_frame_index = 0
+        else:
+            print(f"Already in state: {state}, skipping reset.")
+            frames = self.animations.get(state)
+            if not frames:
+                return
+
+        frame = frames[self.current_frame_index % len(frames)]
+        self.label.configure(image=frame)
+        self.label.image = frame
+        self.current_frame_index = (self.current_frame_index + 1) % len(frames)
 
 # Define a method to move the pet to new screen coordinates
     def set_position(self, x, y):
