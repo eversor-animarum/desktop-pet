@@ -67,7 +67,6 @@ class View:
                  print(f"Loaded animations: {self.animations.keys()}")
          for state, frames in self.animations.items():
              print(f"{state} has {len(frames)} frames")
-
 # This method updates the current frame to be displayed using the controller
     def update_animation(self, state):
         if self.current_state != state:
@@ -83,16 +82,15 @@ class View:
             frames = self.animations.get(state)
             if not frames:
                 return
-
+    #getting the current frame and updating the label
         frame = frames[self.current_frame_index % len(frames)]
         self.label.configure(image=frame)
         self.label.image = frame
         self.current_frame_index = (self.current_frame_index + 1) % len(frames)
-
 # Define a method to move the pet to new screen coordinates
     def set_position(self, x, y):
         self.label.place(x=x, y=y)
-
+#this is the method to animate the pet, by cycling through the frames,I'd be changing the number of frames to see how it works
     def animate(self):
         # Get frames of current state
         frames = self.animations.get(self.current_state)
